@@ -134,7 +134,7 @@ html {
 .tm-btn-default:hover,
 .tm-btn-default:focus {
   color: white;
-  background-color: #98999A;
+  background-color: #9a9a98;
 }
 
 .tm-btn-primary {
@@ -148,13 +148,13 @@ html {
 }
 
 .tm-btn-success {
-  background-color: #319966;
+  background-color: #5b3926;
   color: white;
 }
 
 .tm-btn-success:hover,
 .tm-btn-success:focus {
-  background-color: #1d6e46;
+  background-color: #3b2518;
 }
 
 .tm-btn-danger {
@@ -176,7 +176,7 @@ html {
 }
 
 .tm-text-success {
-  color: #319966;
+  color: #5b3926;
 }
 
 .text-center {
@@ -195,7 +195,7 @@ html {
 body {
   font-family: 'Open Sans', Arial, sans-serif;
   font-size: 17px;
-  background-color: #ccc;
+  background-color: #3b2518;
   overflow-x: hidden;
 }
 
@@ -326,6 +326,7 @@ p, address {
   font-size: 2rem;
   font-weight: 400;
   margin-bottom: 30px;
+  color:#3b2518;
 }
 
 .tm-gallery {
@@ -705,7 +706,7 @@ p, address {
 
 .tm-info-title {
   font-size: 1.6rem;
-  font-weight: 300;
+  font-weight: 500;
   margin-bottom: 30px;
 }
 
@@ -727,7 +728,7 @@ address {
 .tm-contact-icon {
   display: inline-block;
   margin-right: 25px;
-  color: #319966;
+  color: #5b3926;
 }
 
 .tm-contact-link {

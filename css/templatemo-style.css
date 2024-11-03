@@ -181,6 +181,7 @@ html {
 
 .text-center {
   text-align: center;
+
 }
 
 .hidden {
@@ -212,7 +213,7 @@ p, address {
 .placeholder {
   width: 100%;
   min-height: 460px;
-  background-color: #556E5B;
+  background-color: #fafafa;
 }
 
 .placeholder-2 {
@@ -307,7 +308,9 @@ p, address {
 }
 
 .tm-nav-link {
-  color: white;
+  font-family: Comic Sans, Comic Sans MS, cursive;
+  font-size: 18px;
+  color: rgb(255, 255, 255);
   text-decoration: none;
   padding-bottom: 10px;
 }
@@ -318,11 +321,12 @@ p, address {
 }
 
 .tm-welcome-section {
-  margin: 60px auto;
+  margin: 30px auto;
   max-width: 655px;
 }
 
 .tm-section-title {
+  font-family: Comic Sans, Comic Sans MS, cursive;
   font-size: 2rem;
   font-weight: 400;
   margin-bottom: 30px;
@@ -347,11 +351,16 @@ p, address {
   font-size: 0.95rem;
 }
 
+.col-md-6.tm-description-figure {
+  margin-right: 15px; /* Espacio entre imagen y texto */
+}
+
 .tm-section,
 .tm-container-inner,
 .tm-container-inner-2 {
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 30px;
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -396,9 +405,10 @@ p, address {
 }
 
 .tm-gallery-title {
+  font-family: Comic Sans, Comic Sans MS, cursive;
   font-size: 1.3rem;
   font-weight: 400;
-  color: #1A6692;
+  color: #954606;
   margin-bottom: 15px;
 }
 
@@ -408,11 +418,11 @@ p, address {
 
 .tm-gallery-price {
   font-size: 1.25rem;
-  color: #2F956D;
+  color: #cb0f0f;
   margin-bottom: 60px;
 }
 
-.tm-paging-links {
+.tm-paging-links{
   text-align: center;
   margin-bottom: 40px;
 }
@@ -420,7 +430,8 @@ p, address {
 .tm-paging-item {
   list-style: none;
   display: inline-block;
-  border: 1px solid #2F956D;
+  border-radius: 7px;
+  border: 7px solid #953e2f;
   margin: 7px;
 }
 
@@ -430,23 +441,26 @@ p, address {
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  color: #2F956D;
-  background-color: transparent;
+  color: #ffffff;
+  background-color: #953e2f;
+  
 }
 
 .tm-paging-link.active,
 .tm-paging-link:hover {
-  background-color: #2F956D;
-  color: white;
+  background-color: #953e2f;
+  color: rgb(255, 255, 255);
 }
 
 .tm-description-figure {
-  text-align: center;  
+  text-align: center; 
+
 }
 
 .tm-description-box {
   margin-left: auto;
   margin-right: auto;
+  padding: 20px;
 }
 
 .tm-description-box {
@@ -471,6 +485,7 @@ p, address {
 }
 
 .tm-footer {
+  text-align: center;
   padding: 25px 15px;
   margin-top: 40px;
 }
@@ -560,6 +575,10 @@ p, address {
 .tm-feature {
   text-align: center;
   padding: 45px 20px;
+}
+
+.tm-featured-image {
+  margin-top: 30px; 
 }
 
 .tm-feature-icon {
@@ -852,3 +871,4 @@ address {
 .panel p {
   padding: 5px 20px 30px;
 }
+

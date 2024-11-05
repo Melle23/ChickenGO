@@ -443,24 +443,25 @@ p, address {
   list-style: none;
   display: inline-block;
   border-radius: 7px;
-  border: 7px solid #953e2f;
+  border: 2px solid #953e2f;
   margin: 7px;
+  
 }
 
-.tm-paging-link{
+.tm-paging-link {
   padding: 10px 30px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  color: #ffffff;
-  background-color: #953e2f;
+  color: #953e2f;
+  background-color: transparent;
 }
 
-.tm-paging-link.active
+.tm-paging-link.active,
 .tm-paging-link:hover {
   background-color: #953e2f;
-  color: rgb(255, 255, 255);
+  color: white;
 }
 
 .tm-description-figure {
@@ -508,6 +509,10 @@ p, address {
 
 .tm-footer a:hover {
   color: #1A6692;
+}
+
+.tm-footer2 {
+  color: white;
 }
 
 /* About */

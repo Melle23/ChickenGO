@@ -134,7 +134,7 @@ html {
 .tm-btn-default:hover,
 .tm-btn-default:focus {
   color: white;
-  background-color: #9a9a98;
+  background-color: #3b2518;
 }
 
 .tm-btn-primary {
@@ -191,6 +191,7 @@ html {
 .img-fluid {
   max-width: 100%;
   height: auto;
+  margin-top: 15px;
 }
 
 body {
@@ -205,7 +206,7 @@ body {
 }
 
 p, address {
-  color: #626364;
+  color: #21150e;
   line-height: 1.8;
 }
 
@@ -327,7 +328,6 @@ p, address {
 
 .tm-section-title {
   font-family: Comic Sans, Comic Sans MS, cursive;
-  font-size: 2rem;
   font-weight: 400;
   margin-bottom: 30px;
   color:#3b2518;
@@ -406,9 +406,16 @@ p, address {
 
 .tm-gallery-title {
   font-family: Comic Sans, Comic Sans MS, cursive;
-  font-size: 1.3rem;
   font-weight: 400;
   color: #954606;
+  margin-bottom: 15px;
+}
+
+.tm-gallery-title-2{
+  font-family: Comic Sans, Comic Sans MS, cursive;
+  font-weight: 400;
+  color: #954606;
+  margin-top: 25px;
   margin-bottom: 15px;
 }
 
@@ -422,9 +429,14 @@ p, address {
   margin-bottom: 60px;
 }
 
+.video-spacing {
+  margin-top: 30px;
+}
+
 .tm-paging-links{
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+  margin-top: 30px;
 }
 
 .tm-paging-item {
@@ -435,7 +447,7 @@ p, address {
   margin: 7px;
 }
 
-.tm-paging-link {
+.tm-paging-link{
   padding: 10px 30px;
   display: flex;
   align-items: center;
@@ -443,10 +455,9 @@ p, address {
   text-decoration: none;
   color: #ffffff;
   background-color: #953e2f;
-  
 }
 
-.tm-paging-link.active,
+.tm-paging-link.active
 .tm-paging-link:hover {
   background-color: #953e2f;
   color: rgb(255, 255, 255);

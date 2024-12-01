@@ -1,0 +1,11 @@
+chickengo\chickengo\JakartaRestConfiguration.class
+Controlador\Consultas.class
+servlet\AddCart.class
+chickengo\chickengo\resources\JakartaEE11Resource.class
+Modelo\ModeloProducto.class
+Controlador\ControladorProducto.class
+Modelo\Producto.class
+servlet\InicioSesion.class
+Controlador\Conexion.class
+Modelo\Articulo.class
+servlet\RegistrarUsuarios.class

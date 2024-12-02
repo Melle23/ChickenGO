@@ -1,3 +1,10 @@
+<%-- 
+    Document   : index.jsp
+    Created on : 2 dic 2024, 3:21:35 p.m.
+    Author     : adria
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
@@ -38,10 +45,10 @@
                             </div>
                             <nav class="col-md-6 col-12 tm-nav">
                                 <ul class="tm-nav-ul">
-                                    <li class="tm-nav-li"><a href="index.html" class="tm-nav-link active">Inicio</a></li>
-                                    <li class="tm-nav-li"><a href="catalogo.html" class="tm-nav-link">Catálogo</a></li>
-                                    <li class="tm-nav-li"><a href="about.html" class="tm-nav-link">Nosotros</a></li>
-                                    <li class="tm-nav-li"><a href="contact.html" class="tm-nav-link">Contacto</a></li>
+                                    <li class="tm-nav-li"><a href="index.jsp" class="tm-nav-link active">Inicio</a></li>
+                                    <li class="tm-nav-li"><a href="catalogo.jsp" class="tm-nav-link">Catálogo</a></li>
+                                    <li class="tm-nav-li"><a href="about.jsp" class="tm-nav-link">Nosotros</a></li>
+                                    <li class="tm-nav-li"><a href="contact.jsp" class="tm-nav-link">Contacto</a></li>
                                     <li class="tm-nav-li"><button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#loginModal">
                                             Login
                                         </button></li>
@@ -87,7 +94,7 @@
                                 <p class="tm-mb-45">Descubre nuestra historia y la pasión que nos inspira a preparar los
                                     mejores pollos asados. Conoce el sabor, la dedicación y el cariño detrás de cada
                                     plato.</p>
-                                <a href="about.html" class="tm-btn tm-btn-default tm-right">Conócenos</a>
+                                <a href="about.jsp" class="tm-btn tm-btn-default tm-right">Conócenos</a>
                             </div>
                         </div>
                         <h2 class="col-12 text-center tm-gallery-title-2">Disfruta Más, Paga Menos en Chicken Go</h2>

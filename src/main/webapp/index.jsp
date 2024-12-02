@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="jakarta.servlet.http.HttpSession"%>
+<%@page import="jakarta.servlet.http.HttpServletRequest"%>
 <!DOCTYPE html>
 <html>
 
@@ -21,14 +23,6 @@
 
         <link href="css/templatemo-style.css" rel="stylesheet" />
     </head>
-    <!--
-    
-    Simple House
-    
-    https://templatemo.com/tm-539-simple-house
-    
-    -->
-
 
     <body>
 
@@ -49,17 +43,35 @@
                                     <li class="tm-nav-li"><a href="catalogo.jsp" class="tm-nav-link">Catálogo</a></li>
                                     <li class="tm-nav-li"><a href="about.jsp" class="tm-nav-link">Nosotros</a></li>
                                     <li class="tm-nav-li"><a href="contact.jsp" class="tm-nav-link">Contacto</a></li>
+                                    <% 
+                                        String usuario = (session != null) ? (String) session.getAttribute("usuario") : null;
+                                        if (usuario == null) { 
+                                    %>
                                     <li class="tm-nav-li"><button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#loginModal">
-                                            Login
-                                        </button></li>
+                                            Iniciar sesión
+                                        </button>
+                                    </li>
+                                    <% } else { %>
+                                    <li class="tm-nav-li">
+                                        <form action="cerrarSesion" method="post">
+                                            <button type="submit" class="btn btn-danger btn-round">
+                                                Cerrar sesión
+                                            </button>
+                                        </form>
+                                    </li>
+                                    <% } %>
                                 </ul>
                             </nav>
                         </div>
                     </div>
                 </div>
             </div>
-
-
+            <%if (request.getAttribute("error") != null) {
+            %>
+            <div class="alert alert-danger text-center" role="alert">
+                <%= request.getAttribute("error") %>
+            </div>
+            <% } %>
 
             <main>
                 <header class="row tm-welcome-section">
@@ -173,7 +185,6 @@
                     </div>
                 </div>
             </div>       
-
     </body>
 
 </html>

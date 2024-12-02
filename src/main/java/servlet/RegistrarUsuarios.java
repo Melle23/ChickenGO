@@ -16,7 +16,7 @@ import java.io.IOException;
 
 /**
  *
- * @author Omar López Chávez
+ * @author 
  */
 @WebServlet(name = "RegistrarUsuarios", urlPatterns = {"/nuevousuario"})
 public class RegistrarUsuarios extends HttpServlet {

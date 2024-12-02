@@ -42,9 +42,10 @@ public class InicioSesion extends HttpServlet {
             HttpSession objSesion = request.getSession(true);
             objSesion.setAttribute("usuario", usuario);
             System.out.println("Inicio correcto");
-            response.sendRedirect("menu.jsp");
-        }else {
             response.sendRedirect("index.jsp");
+        }else {
+            request.setAttribute("error", "Datos incorrectos");
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
     }// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

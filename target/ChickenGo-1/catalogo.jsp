@@ -84,7 +84,7 @@
                     <div id="tm-gallery-page-pollos" class="tm-gallery-page">
                         <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
                             <figure>
-                                <img src="img/pollo.jpg" class="img-fluid tm-gallery-img" />
+                                <img src="img/medioPollo_.png" class="img-fluid tm-gallery-img" />
                                 <figcaption>
                                     <h4>1/2 Pollo</h4>
                                     <p class="tm-gallery-description">Incluye: papas, cebolla, chile, tortillas, y salsa de la casa</p>
@@ -92,7 +92,7 @@
                                     <% if (usuarioLogueado) { %>
                                     <form action="AddCart" method="post">
                                         <input type="hidden" name="nombre" value="1/2 Pollo" />
-                                        <input type="hidden" name="img" value="img/pollo.jpg" />
+                                        <input type="hidden" name="img" value="img/medioPollo_.png" />
                                         <input type="hidden" name="precio" value="85.00" />
                                         <input type="number" name="cantidad" value="1" min="1" />
                                         <button type="submit" class="btn btn-primary">
@@ -105,7 +105,6 @@
                         </article>
 
                         <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
-                            <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
                                 <figure>
                                     <img src="img/unoPollo.png" alt="1-pollo" class="img-fluid tm-gallery-img" />
                                     <figcaption>
@@ -132,7 +131,7 @@
 
                         <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
                             <figure>
-                                <img src="img/pollo.jpg" alt="1y1/2-pollo" class="img-fluid tm-gallery-img" />
+                                <img src="img/pollo_yMedio.png" alt="1y1/2-pollo" class="img-fluid tm-gallery-img" />
                                 <figcaption>
                                     <h4>1 y 1/2 Pollos</h4>
                                     <p class="tm-gallery-description">Incluye: papas, cebolla, chile, tortillas, y salsa de la casa</p>
@@ -140,7 +139,7 @@
                                     <% if (usuarioLogueado) { %>
                                     <form action="AddCart" method="post">
                                         <input type="hidden" name="nombre" value="1 y 1/2 Pollo" />
-                                        <input type="hidden" name="img" value="img/unoPollo.png" />
+                                        <input type="hidden" name="img" value="img/pollo_yMedio.png" />
                                         <input type="hidden" name="precio" value="240.00" />
                                         <input type="number" name="cantidad" value="1" min="1" />
                                         <button type="submit" class="btn btn-primary">

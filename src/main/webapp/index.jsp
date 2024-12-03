@@ -176,10 +176,10 @@
                         <div class="d-flex flex-column text-center">
                             <form action="iniciar" method="post">
                                 <div class="form-group">
-                                    <input name="usuario" type="text" class="form-control" id="email1"placeholder="Nombre de usuario...">
+                                    <input name="usuario" type="text" class="form-control" id="email1"placeholder="Nombre de usuario..." required>
                                 </div>
                                 <div class="form-group">
-                                    <input name="pass" type="password" class="form-control" id="password1" placeholder="Escribir contraseña...">
+                                    <input name="pass" type="password" class="form-control" id="password1" placeholder="Escribir contraseña..." required>
                                 </div>
                                 <input type="submit" class="btn tm-btn-primary btn-block btn-round" value="Iniciar sesión">
                             </form>

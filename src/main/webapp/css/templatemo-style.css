@@ -116,7 +116,7 @@ html {
 */
 
 .tm-btn {
-  display: inline-block;
+  display: block;
   font-size: 1rem;
   width: auto;
   padding: 10px 30px;
@@ -144,7 +144,13 @@ html {
 
 .tm-btn-primary:hover,
 .tm-btn-primary:focus {
-  background-color: #1b6f96;
+  background-color: #CFBEA5;
+  color: black;
+}
+
+.tm-btn-sesion{
+    background-color: white;
+    color: black;
 }
 
 .tm-btn-success {
@@ -158,13 +164,18 @@ html {
 }
 
 .tm-btn-danger {
-  background-color: #993332;
-  color: white;
+  background-color: white;
+  color: black;
+  padding: 10px 20px; /* Más espacio dentro del botón */
+  width: auto; /* Ajusta el ancho al contenido */
+  min-width: 150px; /* Asegura un ancho mínimo */
+  text-align: center; /* Centra el texto */
+  display: inline-block; 
 }
 
 .tm-btn-danger:hover,
 .tm-btn-danger:focus {
-  background-color: #752423;
+  background-color: #CFBEA5;
 }
 
 .tm-mb-45 {
@@ -683,6 +694,29 @@ p, address {
   margin-bottom: 30px;
 }
 
+input[type="text"],
+input[type="password"] {
+    width: 100%; 
+    margin-top: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+input[type="submit"] {
+    width: 100%; 
+    margin-top: 15px;
+    background-color: #3b2518;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+form {
+    width: 50%; 
+    max-width: 600px; 
+    margin: 0 auto;
+}
+
 .form-control {
   display: block;
   width: 100%;
@@ -699,6 +733,15 @@ p, address {
   border-left: 0;
   border-radius: 0;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 400px);
+    padding: 20px;
 }
 
 .form-control::-ms-expand {

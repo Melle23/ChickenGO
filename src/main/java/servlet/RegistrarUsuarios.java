@@ -42,6 +42,7 @@ public class RegistrarUsuarios extends HttpServlet {
             response.sendRedirect("index.jsp");
         }else {
             response.sendRedirect("registro.jsp");
+            
         }
     }
 

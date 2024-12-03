@@ -20,7 +20,6 @@
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-
         <link href="css/templatemo-style.css" rel="stylesheet" />
     </head>
 
@@ -47,14 +46,14 @@
                                         String usuario = (session != null) ? (String) session.getAttribute("usuario") : null;
                                         if (usuario == null) { 
                                     %>
-                                    <li class="tm-nav-li"><button type="button" class="btn btn-info btn-round" data-toggle="modal" data-target="#loginModal">
+                                    <li class="tm-nav-li"><button type="button" class="btn tm-btn-danger btn-round" data-toggle="modal" data-target="#loginModal">
                                             Iniciar sesión
                                         </button>
                                     </li>
                                     <% } else { %>
                                     <li class="tm-nav-li">
                                         <form action="cerrarSesion" method="post">
-                                            <button type="submit" class="btn btn-danger btn-round">
+                                            <button type="submit" class="btn tm-btn-danger btn-round">
                                                 Cerrar sesión
                                             </button>
                                         </form>
@@ -133,8 +132,7 @@
                 </div>
             </main>
         </div>
-
-
+            
         <footer class="tm-footer tm-center">
             <p class="tm-footer2">&copy; 2024 Chicken Go</p>
         </footer>
@@ -166,7 +164,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-title text-center">
-                            <h4>Bienvenidos</h4>
+                            <h4>¡Bienvenido a Chicken-Go!</h4><br>
                         </div>
                         <div class="d-flex flex-column text-center">
                             <form action="iniciar" method="post">
@@ -176,12 +174,12 @@
                                 <div class="form-group">
                                     <input name="pass" type="password" class="form-control" id="password1" placeholder="Escribir contraseña...">
                                 </div>
-                                <input type="submit" class="btn btn-primary btn-block btn-round" value="Iniciar sesión">
+                                <input type="submit" class="btn tm-btn-primary btn-block btn-round" value="Iniciar sesión">
                             </form>
                         </div>
                     </div>
                     <div class="modal-footer d-flex justify-content-center">
-                        <div class="signup-section">No tienes cuenta? <a href="registro.jsp" class="text-info"> Registrar</a>.</div>
+                        <div class="signup-section">¿No tienes cuenta? <a href="registro.jsp" class="text-info"> Regístrate aquí</a></div>
                     </div>
                 </div>
             </div>       

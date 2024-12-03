@@ -87,6 +87,18 @@
                     <button type="submit" class="btn btn-wine ml-2">Confirmar Compra</button>
                 </form>
             </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const carrito = <%= carrito != null ? carrito.size() : 0 %>; // Cantidad de productos en el carrito
+        const btnConfirmar = document.querySelector("form[action='confirmarCompra.jsp'] button");
+
+        if (carrito === 0) {
+            btnConfirmar.disabled = true;
+            btnConfirmar.title = "Agrega productos al carrito antes de confirmar la compra";
+        }
+    });
+</script>
+
         </div>
     </body>
 </html>

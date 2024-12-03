@@ -33,6 +33,11 @@ html {
   margin-left: auto;
 }
 
+.btn-wine {
+    background-color: #800020;
+    color: white;
+}
+
 .tm-container-inner,
 .tm-container-inner-2 {
   padding-left: 15px;

@@ -1,13 +1,13 @@
-<%-- 
-    Document   : menu
-    Created on : Oct 29, 2022, 12:48:13 AM
-    Author     : Omar López Chávez
---%>
+
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 <%@page import="servlet.AddCart"%>
 <%@page import="Modelo.Articulo"%>
 <%@page import="java.util.ArrayList"%>
@@ -42,6 +42,7 @@
                         <th>Cantidad</th>
                         <th>Precio Unitario</th>
                         <th>Total</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -57,6 +58,12 @@
                         <td><%= articulo.getCantidad()%></td>
                         <td>$<%= articulo.getPrecioUnitario()%></td>
                         <td>$<%= subtotal%></td>
+                        <td>
+                            <form action="eliminarArticulo" method="get">
+                                <input type="hidden" name="nombre" value="<%= articulo.getNombre()%>">
+                                <button type="submit" class="btn btn-wine"><i class="bi bi-trash"></i></button>
+                            </form>
+                        </td>
                     </tr>
                     <%
                             }
@@ -70,13 +77,14 @@
                     <tr>
                         <td colspan="4" class="text-right"><strong>Total:</strong></td>
                         <td><strong>$<%= totalCarrito %></strong></td>
+                        <td>
                     </tr>
                 </tfoot>
             </table>
             <div class="d-flex justify-content-between">
-                <a href="catalogo.jsp" class="btn btn-secondary">Seguir comprando</a>
+                <a href="catalogo.jsp" class="btn btn-wine ml-2">Seguir comprando</a>
                 <form action="confirmarCompra.jsp" method="post">
-                    <button type="submit" class="btn btn-secondary ml-2">Confirmar Compra</button>
+                    <button type="submit" class="btn btn-wine ml-2">Confirmar Compra</button>
                 </form>
             </div>
         </div>

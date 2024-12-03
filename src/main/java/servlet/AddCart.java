@@ -2,6 +2,7 @@ package servlet;
 
 import Modelo.Articulo;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
  *
  * @author lv1822
  */
+@WebServlet("/eliminarArticulo")
 public class AddCart extends HttpServlet {
 
     @Override
@@ -44,6 +46,22 @@ public class AddCart extends HttpServlet {
         sesion.setAttribute("carrito", carrito);
         response.sendRedirect("cart.jsp");
     }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String nombre = request.getParameter("nombre");
+        HttpSession sesion = request.getSession(false);
+
+        if (sesion != null) {
+            ArrayList<Articulo> carrito = (ArrayList<Articulo>) sesion.getAttribute("carrito");
+            if (carrito != null) {
+                carrito.removeIf(articulo -> articulo.getNombre().equals(nombre));
+                sesion.setAttribute("carrito", carrito);
+            }
+        }
+        response.sendRedirect("cart.jsp");
+    }
+
 
     // Método para limpiar el carrito
     public static void limpiarCarrito(HttpSession sesion) {

@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Modelo;
 
 /**
@@ -9,27 +5,33 @@ package Modelo;
  * @author rezro
  */
 public class Articulo {
-    private int idProducto;
+
+    private String nombre;
+    private String imagen;
     private int cantidad;
+    private double precioUnitario;
 
-    public Articulo() {
-    }
-
-    public Articulo(int cantidad) {
+    public Articulo(String nombre, String imagen, int cantidad, double precioUnitario) {
+        this.nombre = nombre;
+        this.imagen = imagen;
         this.cantidad = cantidad;
+        this.precioUnitario = precioUnitario;
     }
 
-    public Articulo(int idProducto, int cantidad) {
-        this.idProducto = idProducto;
-        this.cantidad = cantidad;
+    public String getNombre() {
+        return nombre;
     }
 
-    public int getIdProducto() {
-        return idProducto;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public void setIdProducto(int idProducto) {
-        this.idProducto = idProducto;
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
     public int getCantidad() {
@@ -40,5 +42,11 @@ public class Articulo {
         this.cantidad = cantidad;
     }
     
+    public void setPrecioUnitario(double precioUnitario){
+        this.precioUnitario = precioUnitario;
+    }
     
+    public double getPrecioUnitario(){
+        return precioUnitario;
+    }
 }

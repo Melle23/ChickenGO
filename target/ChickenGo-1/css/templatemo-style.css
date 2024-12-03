@@ -931,3 +931,15 @@ address {
   padding: 5px 20px 30px;
 }
 
+.form-inline .form-control {
+    width: auto; display: inline-block; 
+} 
+
+.btn-primary { 
+    background-color: #800020; /* Rojo vino */ 
+    border-color: #800020; 
+} 
+
+.btn-primary:hover { 
+    background-color: #a00028; 
+    border-color: #a00028; }

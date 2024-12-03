@@ -17,6 +17,8 @@
         <title>Chicken Go</title>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -42,15 +44,20 @@
                                     <li class="tm-nav-li"><a href="catalogo.jsp" class="tm-nav-link">Catálogo</a></li>
                                     <li class="tm-nav-li"><a href="about.jsp" class="tm-nav-link">Nosotros</a></li>
                                     <li class="tm-nav-li"><a href="contact.jsp" class="tm-nav-link">Contacto</a></li>
-                                    <% 
+                                    <%
                                         String usuario = (session != null) ? (String) session.getAttribute("usuario") : null;
-                                        if (usuario == null) { 
+                                        if (usuario == null) {
                                     %>
                                     <li class="tm-nav-li"><button type="button" class="btn tm-btn-danger btn-round" data-toggle="modal" data-target="#loginModal">
                                             Iniciar sesión
                                         </button>
                                     </li>
                                     <% } else { %>
+
+
+                                    <li class="tm-nav-li"><a href="cart.jsp" class="tm-nav-link"><i class="bi bi-cart"></i> </a></li>
+
+
                                     <li class="tm-nav-li">
                                         <form action="cerrarSesion" method="post">
                                             <button type="submit" class="btn tm-btn-danger btn-round">
@@ -68,9 +75,9 @@
             <%if (request.getAttribute("error") != null) {
             %>
             <div class="alert alert-danger text-center" role="alert">
-                <%= request.getAttribute("error") %>
+                <%= request.getAttribute("error")%>
             </div>
-            <% } %>
+            <% }%>
 
             <main>
                 <header class="row tm-welcome-section">
@@ -132,7 +139,7 @@
                 </div>
             </main>
         </div>
-            
+
         <footer class="tm-footer tm-center">
             <p class="tm-footer2">&copy; 2024 Chicken Go</p>
         </footer>
@@ -182,7 +189,7 @@
                         <div class="signup-section">¿No tienes cuenta? <a href="registro.jsp" class="text-info"> Regístrate aquí</a></div>
                     </div>
                 </div>
-            </div>       
+            </div>
     </body>
 
 </html>

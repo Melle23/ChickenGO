@@ -8,6 +8,15 @@
         <servlet-name>AddCart</servlet-name>
         <url-pattern>/agregarproducto</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>AddCart</servlet-name>
+        <servlet-class>servlet.AddCart</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AddCart</servlet-name>
+        <url-pattern>/AddCart</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

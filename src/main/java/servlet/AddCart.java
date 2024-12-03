@@ -1,8 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package servlet;
+
 import Modelo.Articulo;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -12,89 +9,44 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.ArrayList;
 
-
 /**
  *
  * @author lv1822
  */
 public class AddCart extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String nombre = request.getParameter("nombre");
+        String img = request.getParameter("img");
         int cantidad = Integer.parseInt(request.getParameter("cantidad"));
-        int idproducto = Integer.parseInt(request.getParameter("idproducto"));
-        
+        double precioUnitario = Double.parseDouble(request.getParameter("precio"));
+
         HttpSession sesion = request.getSession(true);
-        ArrayList<Articulo> articulos = sesion.getAttribute("carrito") == null ? new ArrayList<>() : (ArrayList) sesion.getAttribute("carrito");
-        
-        boolean flag = false;        
-        if(articulos.size() > 0){
-            for(Articulo a : articulos){
-                if(idproducto == a.getIdProducto()){
-                    a.setCantidad(a.getCantidad() + cantidad);
-                    flag = true;
-                    break;
-                }
+        ArrayList<Articulo> carrito = sesion.getAttribute("carrito") == null
+                ? new ArrayList<>()
+                : (ArrayList<Articulo>) sesion.getAttribute("carrito");
+
+        boolean productoExiste = false;
+
+        for (Articulo articulo : carrito) {
+            if (articulo.getNombre().equals(nombre)) {
+                articulo.setCantidad(articulo.getCantidad() + cantidad);
+                productoExiste = true;
+                break;
             }
         }
-        
-        if(!flag){
-            articulos.add(new Articulo(idproducto, cantidad));
+
+        if (!productoExiste) {
+            carrito.add(new Articulo(nombre, img, cantidad, precioUnitario));
         }
-        
-        sesion.setAttribute("carrito", articulos);  
-        
+
+        sesion.setAttribute("carrito", carrito);
         response.sendRedirect("cart.jsp");
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+    // Método para limpiar el carrito
+    public static void limpiarCarrito(HttpSession sesion) {
+        sesion.setAttribute("carrito", new ArrayList<Articulo>());
     }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }

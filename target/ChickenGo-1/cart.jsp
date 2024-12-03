@@ -4,133 +4,81 @@
     Author     : Omar López Chávez
 --%>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<%@page import="servlet.AddCart"%>
 <%@page import="Modelo.Articulo"%>
-<%@page import="Modelo.Producto"%>
-<%@page import="Controlador.ControladorProducto"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <%
-    HttpSession objSesion = request.getSession(false);
-    String usuario = (String) objSesion.getAttribute("usuario");
-    if (usuario.equals("")) {
-        response.sendRedirect("index.jsp");
-    }
-%>
-<%
-    HttpSession sesion = request.getSession(true);
-    ArrayList<Articulo> articulos = sesion.getAttribute("carrito") == null ? null : (ArrayList) sesion.getAttribute("carrito");
+    HttpSession sesion = request.getSession(false);
+    ArrayList<Articulo> carrito = sesion != null ? (ArrayList<Articulo>) sesion.getAttribute("carrito") : null;
+    double totalCarrito = 0.0;
 %>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <meta charset="UTF-8">
+        <title>Carrito de Compras</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+        <style>
+            .btn-wine {
+                background-color: #800020;
+                color: white;
+            }
+        </style>
     </head>
     <body>
-        <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
-            <!-- Brand/logo -->
-            <a class="navbar-brand" href="#">Sistema JSP</a>
-
-            <!-- Links -->
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Productos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Cerrar sesión</a>
-                </li>
-
-            </ul>
-        </nav>
-
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="table-responsive cart_info" id="cart-container">
-                        <table class="table table-condensed" id="shop-table">
-                            <thead>
-                                <tr class="cart_menu">
-                                    <td class="image">Productos</td>
-                                    <td class="description"></td>
-                                    <td class="price">Precio</td>
-                                    <td class="quantity">Cantidad</td>
-                                    <td class="total">Total</td>
-                                    <td></td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <%
-                                    ControladorProducto cp = new ControladorProducto();
-                                    double total = 0;
-                                    if (articulos != null) {
-                                        for (Articulo a : articulos) {
-                                            Producto producto = cp.getProducto(a.getIdProducto());
-                                            total += a.getCantidad() * producto.getPrecio();
-                                %>    
-                                <tr>
-                                    <td class="cart_product">
-                                        <a href=""><img src="<%=producto.getImg()%>" alt="" width="230" height="230"></a>
-                                    </td>
-                                    <td class="cart_description">
-                                        <h4><a href=""><%=producto.getNombre()%></a></h4>
-                                        <p>Web ID: <%=producto.getId()%></p>
-                                    </td>
-                                    <td class="cart_price">
-                                        <p>$<%=producto.getPrecio()%></p>
-                                    </td>
-                                    <td class="cart_quantity">
-                                        <div class="cart_quantity_button">
-                                            <a class="cart_quantity_up" href=""> + </a>
-                                            <input class="cart_quantity_input" type="text" name="quantity" value="<%= a.getCantidad()%>" autocomplete="off" size="2">
-                                            <a class="cart_quantity_down" href=""> ~ </a>
-                                        </div>
-                                    </td>
-                                    <td class="cart_total">
-                                        <p class="cart_total_price">$<%= Math.round(producto.getPrecio() * a.getCantidad() * 100.0) / 100.0%></p>
-                                    </td>
-                                    <td class="cart_delete">
-                                        <span id="idarticulo" style="display:none;"><%= producto.getId()%> </span>
-                                        <a class="cart_quantity_delete" href="" id="deleteitem"><i class="fa fa-times"></i></a>
-                                    </td>
-
-                                    <%      }
-                                        }
-                                    %>
-                            </tbody>
-                        </table>
-                        <% if (articulos == null) {%>
-                        <h4>No hay articulos en el carrito de compras</h4>
-                        <% }%>
-                    </div><a href="javascript:window.history.go(-2);">Seguir Comprando</a>
-                </div>
-                <div class="col-sm-6">
-                    <div class="card">
-                        <div class="card-header bg-primary text-white">Carrito</div>
-                        <div class="card-body">
-                            <table>
-                                <tr>
-                                    <td>Sub-total <span id="txt-subtotal"></td>
-                                    <td>$ <%= Math.round(total * 100.0) / 100.0%></span></td>
-                                </tr>
-                                <tr>
-                                    <td>IVA<span></td>
-                                    <td>$ 0.0</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Total</td>
-                                    <td><span id="txt-total">$ <%= Math.round(total * 100.0) / 100.0%></span></td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
+        <div class="container">
+            <h1>Carrito de Compras</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Imagen</th>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio Unitario</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%
+                        if (carrito != null && !carrito.isEmpty()) {
+                            for (Articulo articulo : carrito) {
+                                double subtotal = articulo.getCantidad() * articulo.getPrecioUnitario();
+                                totalCarrito += subtotal;
+                    %>
+                    <tr>
+                        <td><img src="<%= articulo.getImagen()%>" alt="<%= articulo.getNombre()%>" width="100"></td>
+                        <td><%= articulo.getNombre()%></td>
+                        <td><%= articulo.getCantidad()%></td>
+                        <td>$<%= articulo.getPrecioUnitario()%></td>
+                        <td>$<%= subtotal%></td>
+                    </tr>
+                    <%
+                            }
+                        } else { %>
+                    <tr>
+                        <td colspan="5">No hay productos en el carrito.</td>
+                    </tr>
+                    <% } %>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4" class="text-right"><strong>Total:</strong></td>
+                        <td><strong>$<%= totalCarrito %></strong></td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="d-flex justify-content-between">
+                <a href="catalogo.jsp" class="btn btn-secondary">Seguir comprando</a>
+                <form action="confirmarCompra.jsp" method="post">
+                    <button type="submit" class="btn btn-secondary ml-2">Confirmar Compra</button>
+                </form>
             </div>
         </div>
-
-
     </body>
 </html>
